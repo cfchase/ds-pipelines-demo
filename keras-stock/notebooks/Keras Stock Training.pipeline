@@ -24,7 +24,7 @@
                 },
                 {
                   "env_var": "S3_KEY",
-                  "value": "stocks.onnx"
+                  "value": "models/stocks.onnx"
                 }
               ],
               "kubernetes_pod_annotations": [],
@@ -38,7 +38,7 @@
             "label": "",
             "ui_data": {
               "label": "upload-file.ipynb",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/notebook.svg",
+              "image": "/notebook/frank/pipelines-examples/static/elyra/notebook.svg",
               "x_pos": 384,
               "y_pos": 405,
               "description": "Run notebook file"
@@ -108,7 +108,7 @@
             "label": "",
             "ui_data": {
               "label": "01-train-stock-model-keras.ipynb",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/notebook.svg",
+              "image": "/notebook/frank/pipelines-examples/static/elyra/notebook.svg",
               "x_pos": 101,
               "y_pos": 404,
               "description": "Run notebook file"
@@ -154,10 +154,10 @@
           "name": "Keras Stock Training",
           "runtime": "Data Science Pipelines",
           "pipeline_defaults": {
-            "kubernetes_pod_annotations": [],
-            "kubernetes_pod_labels": [],
             "mounted_volumes": [],
             "kubernetes_tolerations": [],
+            "kubernetes_pod_labels": [],
+            "kubernetes_pod_annotations": [],
             "kubernetes_shared_mem_size": {},
             "kubernetes_secrets": [
               {

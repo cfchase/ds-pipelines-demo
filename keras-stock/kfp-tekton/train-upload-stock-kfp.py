@@ -47,7 +47,7 @@ def sdk_pipeline():
 
     upload_model_task.add_env_variable(V1EnvVar(
         name="S3_KEY",
-        value="stocks.onnx"))
+        value="models/stocks.onnx"))
 
     upload_model_task.container.add_env_from(
         V1EnvFromSource(
