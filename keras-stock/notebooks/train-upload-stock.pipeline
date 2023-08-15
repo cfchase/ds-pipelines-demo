@@ -1,0 +1,199 @@
+{
+  "doc_type": "pipeline",
+  "version": "3.0",
+  "json_schema": "http://api.dataplatform.ibm.com/schemas/common-pipeline/pipeline-flow/pipeline-flow-v3-schema.json",
+  "id": "elyra-auto-generated-pipeline",
+  "primary_pipeline": "primary",
+  "pipelines": [
+    {
+      "id": "primary",
+      "nodes": [
+        {
+          "id": "1d1da171-86a2-4d98-9907-7c096a9d3683",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [],
+              "env_vars": [
+                {
+                  "env_var": "FILE_PATH",
+                  "value": "./stocks.onnx"
+                },
+                {
+                  "env_var": "S3_KEY",
+                  "value": "stocks.onnx"
+                }
+              ],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "upload-file.ipynb"
+            },
+            "label": "",
+            "ui_data": {
+              "label": "upload-file.ipynb",
+              "image": "/notebook/pipelines-tutorial/science/static/elyra/notebook.svg",
+              "x_pos": 384,
+              "y_pos": 405,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "f9f06a7e-23b0-4480-b60e-6e903e68671a",
+                  "node_id_ref": "e2653997-333f-4b55-ac56-f064a6e54e5e",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "e2653997-333f-4b55-ac56-f064a6e54e5e",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [
+                "stocks.onnx"
+              ],
+              "env_vars": [
+                {
+                  "env_var": "SCRATCH",
+                  "value": "./"
+                }
+              ],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "01-train-stock-model-keras.ipynb"
+            },
+            "label": "",
+            "ui_data": {
+              "label": "01-train-stock-model-keras.ipynb",
+              "image": "/notebook/pipelines-tutorial/science/static/elyra/notebook.svg",
+              "x_pos": 101,
+              "y_pos": 404,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              }
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "app_data": {
+        "ui_data": {
+          "comments": []
+        },
+        "version": 8,
+        "runtime_type": "KUBEFLOW_PIPELINES",
+        "properties": {
+          "name": "train-upload-stock",
+          "runtime": "Data Science Pipelines",
+          "pipeline_defaults": {
+            "kubernetes_tolerations": [],
+            "kubernetes_pod_annotations": [],
+            "kubernetes_pod_labels": [],
+            "mounted_volumes": [],
+            "kubernetes_shared_mem_size": {},
+            "kubernetes_secrets": [
+              {
+                "env_var": "AWS_ACCESS_KEY_ID",
+                "name": "minio-connection",
+                "key": "AWS_ACCESS_KEY_ID"
+              },
+              {
+                "env_var": "AWS_SECRET_ACCESS_KEY",
+                "name": "minio-connection",
+                "key": "AWS_SECRET_ACCESS_KEY"
+              },
+              {
+                "env_var": "AWS_S3_ENDPOINT",
+                "name": "minio-connection",
+                "key": "AWS_S3_ENDPOINT"
+              },
+              {
+                "env_var": "AWS_DEFAULT_REGION",
+                "name": "minio-connection",
+                "key": "AWS_DEFAULT_REGION"
+              },
+              {
+                "env_var": "AWS_S3_BUCKET",
+                "name": "minio-connection",
+                "key": "AWS_S3_BUCKET"
+              }
+            ],
+            "env_vars": [],
+            "runtime_image": "quay.io/modh/runtime-images@sha256:dc8679b47d0af5f4b23ec8a987c696afda54b192316b5cbcae0ecb660497f652"
+          },
+          "pipeline_parameters": []
+        }
+      },
+      "runtime_ref": ""
+    }
+  ],
+  "schemas": []
+}

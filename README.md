@@ -1,1 +1,1 @@
-# pipelines-demo
+# ds-pipelines-demo
