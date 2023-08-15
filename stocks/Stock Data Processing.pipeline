@@ -33,7 +33,7 @@
             "label": "",
             "ui_data": {
               "label": "get.GOOGL.py",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/python.svg",
+              "image": "/notebook/chris-chase-pipelines/pipeline-examples/static/elyra/python.svg",
               "x_pos": 39,
               "y_pos": 73,
               "description": "Run Python script"
@@ -93,7 +93,7 @@
             "label": "",
             "ui_data": {
               "label": "get.META.py",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/python.svg",
+              "image": "/notebook/chris-chase-pipelines/pipeline-examples/static/elyra/python.svg",
               "x_pos": 45,
               "y_pos": 148,
               "description": "Run Python script"
@@ -153,69 +153,9 @@
             "label": "",
             "ui_data": {
               "label": "get.NVDA.py",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/python.svg",
+              "image": "/notebook/chris-chase-pipelines/pipeline-examples/static/elyra/python.svg",
               "x_pos": 54,
               "y_pos": 293,
-              "description": "Run Python script"
-            }
-          },
-          "inputs": [
-            {
-              "id": "inPort",
-              "app_data": {
-                "ui_data": {
-                  "cardinality": {
-                    "min": 0,
-                    "max": -1
-                  },
-                  "label": "Input Port"
-                }
-              }
-            }
-          ],
-          "outputs": [
-            {
-              "id": "outPort",
-              "app_data": {
-                "ui_data": {
-                  "cardinality": {
-                    "min": 0,
-                    "max": -1
-                  },
-                  "label": "Output Port"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "id": "53eff016-498a-49e1-b741-f22f11df58bf",
-          "type": "execution_node",
-          "op": "execute-python-node",
-          "app_data": {
-            "component_parameters": {
-              "dependencies": [
-                "*.py"
-              ],
-              "include_subdirectories": false,
-              "outputs": [
-                "MSFT_stock_data.csv"
-              ],
-              "env_vars": [],
-              "kubernetes_pod_annotations": [],
-              "kubernetes_pod_labels": [],
-              "kubernetes_secrets": [],
-              "kubernetes_shared_mem_size": {},
-              "kubernetes_tolerations": [],
-              "mounted_volumes": [],
-              "filename": "get.MSFT.py"
-            },
-            "label": "",
-            "ui_data": {
-              "label": "get.MSFT.py",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/python.svg",
-              "x_pos": 52,
-              "y_pos": 215,
               "description": "Run Python script"
             }
           },
@@ -273,7 +213,7 @@
             "label": "",
             "ui_data": {
               "label": "get.TSLA.py",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/python.svg",
+              "image": "/notebook/chris-chase-pipelines/pipeline-examples/static/elyra/python.svg",
               "x_pos": 50,
               "y_pos": 375,
               "description": "Run Python script"
@@ -331,7 +271,7 @@
             "label": "",
             "ui_data": {
               "label": "append.CSVs.py",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/python.svg",
+              "image": "/notebook/chris-chase-pipelines/pipeline-examples/static/elyra/python.svg",
               "x_pos": 376,
               "y_pos": 239,
               "description": "Run Python script"
@@ -358,11 +298,6 @@
                 {
                   "id": "115124b1-2ace-487b-b99c-81d1edf55bef",
                   "node_id_ref": "cdb30cc8-ee55-4efc-967a-fa99c8c08abe",
-                  "port_id_ref": "outPort"
-                },
-                {
-                  "id": "ae531bf3-af0f-4166-a7d7-ff8698b372bc",
-                  "node_id_ref": "53eff016-498a-49e1-b741-f22f11df58bf",
                   "port_id_ref": "outPort"
                 },
                 {
@@ -416,7 +351,7 @@
             "label": "",
             "ui_data": {
               "label": "display.data.py",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/python.svg",
+              "image": "/notebook/chris-chase-pipelines/pipeline-examples/static/elyra/python.svg",
               "x_pos": 615,
               "y_pos": 238,
               "description": "Run Python script"
@@ -479,7 +414,7 @@
             "label": "",
             "ui_data": {
               "label": "upload-file.ipynb",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/notebook.svg",
+              "image": "/notebook/chris-chase-pipelines/pipeline-examples/static/elyra/notebook.svg",
               "x_pos": 856,
               "y_pos": 239,
               "description": "Run notebook file"
@@ -544,7 +479,7 @@
         "version": 8,
         "runtime_type": "KUBEFLOW_PIPELINES",
         "properties": {
-          "name": "stocks",
+          "name": "Stock Data Processing",
           "runtime": "Data Science Pipelines",
           "pipeline_defaults": {
             "kubernetes_pod_annotations": [],
