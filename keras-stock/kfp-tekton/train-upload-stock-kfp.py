@@ -52,7 +52,7 @@ def sdk_pipeline():
     upload_model_task.container.add_env_from(
         V1EnvFromSource(
             secret_ref=V1SecretReference(
-                name="minio-connection"
+                name="aws-connection-my-storage"
             )
         )
     )

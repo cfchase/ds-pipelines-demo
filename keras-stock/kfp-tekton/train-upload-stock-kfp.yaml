@@ -420,7 +420,7 @@ spec:
                 fieldPath: metadata.labels['custom.tekton.dev/originalPipelineRun']
           envFrom:
           - secretRef:
-              name: minio-connection
+              name: aws-connection-my-storage
           image: quay.io/modh/runtime-images:runtime-cuda-tensorflow-ubi9-python-3.9-2023a-20230509-869b370
         params:
         - name: train-model-trname
