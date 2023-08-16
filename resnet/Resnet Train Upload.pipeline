@@ -33,8 +33,8 @@
             "ui_data": {
               "label": "download-file.ipynb",
               "image": "/notebook/cotiviti/sample-pipelines/static/elyra/notebook.svg",
-              "x_pos": 101,
-              "y_pos": 353,
+              "x_pos": 69,
+              "y_pos": 391,
               "description": "Run notebook file"
             }
           },
@@ -50,72 +50,6 @@
                   "label": "Input Port"
                 }
               }
-            }
-          ],
-          "outputs": [
-            {
-              "id": "outPort",
-              "app_data": {
-                "ui_data": {
-                  "cardinality": {
-                    "min": 0,
-                    "max": -1
-                  },
-                  "label": "Output Port"
-                }
-              }
-            }
-          ]
-        },
-        {
-          "id": "62b8b897-b8f9-4736-9cbb-c942ec8fcc6b",
-          "type": "execution_node",
-          "op": "execute-notebook-node",
-          "app_data": {
-            "component_parameters": {
-              "dependencies": [],
-              "include_subdirectories": false,
-              "outputs": [
-                "resnet50-caffe2-v1-9.onnx"
-              ],
-              "env_vars": [],
-              "kubernetes_pod_annotations": [],
-              "kubernetes_pod_labels": [],
-              "kubernetes_secrets": [],
-              "kubernetes_shared_mem_size": {},
-              "kubernetes_tolerations": [],
-              "mounted_volumes": [],
-              "filename": "get-file-size.ipynb",
-              "runtime_image": "quay.io/modh/runtime-images@sha256:27f12a510a034212ce4d579a970cce7aeeb33ffa32044fe88a262ae15d34e763"
-            },
-            "label": "",
-            "ui_data": {
-              "label": "get-file-size.ipynb",
-              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/notebook.svg",
-              "x_pos": 354,
-              "y_pos": 353,
-              "description": "Run notebook file"
-            }
-          },
-          "inputs": [
-            {
-              "id": "inPort",
-              "app_data": {
-                "ui_data": {
-                  "cardinality": {
-                    "min": 0,
-                    "max": -1
-                  },
-                  "label": "Input Port"
-                }
-              },
-              "links": [
-                {
-                  "id": "31fed93f-b320-4495-84f4-680bf0fbac9c",
-                  "node_id_ref": "06715bd3-6f31-41d1-99e2-95c44061d12d",
-                  "port_id_ref": "outPort"
-                }
-              ]
             }
           ],
           "outputs": [
@@ -155,8 +89,8 @@
             "ui_data": {
               "label": "upload-file.ipynb",
               "image": "/notebook/cotiviti/sample-pipelines/static/elyra/notebook.svg",
-              "x_pos": 624,
-              "y_pos": 354,
+              "x_pos": 597,
+              "y_pos": 393,
               "description": "Run notebook file"
             }
           },
@@ -174,8 +108,73 @@
               },
               "links": [
                 {
-                  "id": "646976c7-1bc0-4172-9525-c339d7602c0a",
-                  "node_id_ref": "62b8b897-b8f9-4736-9cbb-c942ec8fcc6b",
+                  "id": "696ad3b8-b7d5-466e-bc69-abaae1efcd20",
+                  "node_id_ref": "708f8582-1acf-47e5-a8ff-ef11225fb4b6",
+                  "port_id_ref": "outPort"
+                }
+              ]
+            }
+          ],
+          "outputs": [
+            {
+              "id": "outPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Output Port"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "708f8582-1acf-47e5-a8ff-ef11225fb4b6",
+          "type": "execution_node",
+          "op": "execute-notebook-node",
+          "app_data": {
+            "component_parameters": {
+              "dependencies": [],
+              "include_subdirectories": false,
+              "outputs": [
+                "resnet50-caffe2-v1-9.onnx"
+              ],
+              "env_vars": [],
+              "kubernetes_pod_annotations": [],
+              "kubernetes_pod_labels": [],
+              "kubernetes_secrets": [],
+              "kubernetes_shared_mem_size": {},
+              "kubernetes_tolerations": [],
+              "mounted_volumes": [],
+              "filename": "train-model.ipynb"
+            },
+            "label": "",
+            "ui_data": {
+              "label": "train-model.ipynb",
+              "image": "/notebook/cotiviti/sample-pipelines/static/elyra/notebook.svg",
+              "x_pos": 332,
+              "y_pos": 390,
+              "description": "Run notebook file"
+            }
+          },
+          "inputs": [
+            {
+              "id": "inPort",
+              "app_data": {
+                "ui_data": {
+                  "cardinality": {
+                    "min": 0,
+                    "max": -1
+                  },
+                  "label": "Input Port"
+                }
+              },
+              "links": [
+                {
+                  "id": "01dc7cb7-d3c9-4fc0-9534-910adb7fc3fb",
+                  "node_id_ref": "06715bd3-6f31-41d1-99e2-95c44061d12d",
                   "port_id_ref": "outPort"
                 }
               ]
@@ -204,14 +203,15 @@
         "version": 8,
         "runtime_type": "KUBEFLOW_PIPELINES",
         "properties": {
-          "name": "train-upload",
+          "name": "Resnet Train Upload",
           "runtime": "Data Science Pipelines",
           "pipeline_defaults": {
-            "kubernetes_pod_annotations": [],
-            "kubernetes_pod_labels": [],
             "mounted_volumes": [],
+            "kubernetes_pod_labels": [],
+            "kubernetes_pod_annotations": [],
             "kubernetes_tolerations": [],
             "kubernetes_shared_mem_size": {},
+            "env_vars": [],
             "kubernetes_secrets": [
               {
                 "env_var": "AWS_ACCESS_KEY_ID",
@@ -239,7 +239,6 @@
                 "key": "AWS_S3_BUCKET"
               }
             ],
-            "env_vars": [],
             "runtime_image": "quay.io/modh/runtime-images@sha256:27f12a510a034212ce4d579a970cce7aeeb33ffa32044fe88a262ae15d34e763"
           }
         }

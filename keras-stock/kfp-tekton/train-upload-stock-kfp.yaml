@@ -443,7 +443,6 @@ spec:
   - name: train-upload-stock-kfp
     volumeClaimTemplate:
       spec:
-        storageClassName: gp3
         accessModes:
         - ReadWriteOnce
         resources:
